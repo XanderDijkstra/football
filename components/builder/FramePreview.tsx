@@ -39,7 +39,7 @@ export function FramePreview({
   personalisation,
 }: Props) {
   return (
-    <div className="bg-cream rounded p-6 md:p-10 border border-border flex items-center justify-center">
+    <div className="bg-surface rounded-sm p-6 md:p-10 border border-border flex items-center justify-center">
       <div className={`relative w-full max-w-xs ${SIZE_ASPECT[size]}`}>
         {/* Frame moulding */}
         <div
@@ -58,7 +58,7 @@ export function FramePreview({
             ) : stadium ? (
               <StadiumMapArt stadium={stadium} personalisation={personalisation} />
             ) : (
-              <p className="text-xs text-muted-foreground text-center font-serif italic">
+              <p className="text-xs text-muted-foreground text-center font-display italic">
                 Pick a stadium or upload an image to preview it framed.
               </p>
             )}

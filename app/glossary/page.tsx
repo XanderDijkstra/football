@@ -23,7 +23,7 @@ export default function GlossaryIndex() {
       <main className="container py-6 md:py-8">
         <Breadcrumbs items={[{ label: "Glossary" }]} />
         <header className="mt-3 max-w-2xl">
-          <h1 className="font-serif text-3xl md:text-5xl text-foreground">
+          <h1 className="font-display text-3xl md:text-5xl text-foreground">
             Glossary
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mt-4">
@@ -39,7 +39,7 @@ export default function GlossaryIndex() {
                 className="group flex items-baseline justify-between gap-6 py-5"
               >
                 <div className="max-w-2xl">
-                  <p className="font-serif text-xl text-foreground group-hover:underline">
+                  <p className="font-display text-xl text-foreground group-hover:underline">
                     {g.term}
                   </p>
                   <p className="text-sm text-muted-foreground mt-1">

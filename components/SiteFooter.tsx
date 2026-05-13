@@ -32,19 +32,20 @@ const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
 export function SiteFooter() {
   return (
     <footer className="mt-24 border-t border-border bg-background">
-      <div className="container py-12 md:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
-          <div className="col-span-2">
-            <p className="font-serif text-2xl text-foreground">
-              <span aria-hidden className="text-muted-foreground mr-1">[</span>
-              <span className="lowercase">{SITE.shortName}</span>
-              <span aria-hidden className="text-muted-foreground ml-1">]</span>
-            </p>
-            <p className="mt-3 max-w-sm text-sm text-muted-foreground">
-              Framed stadium map prints, made on demand and shipped across the UK and EU.
+      <div className="container py-16 md:py-20">
+        {/* Massive wordmark across the footer — fanzine masthead energy */}
+        <p className="font-display uppercase text-foreground leading-[0.9] text-[18vw] md:text-[12rem] tracking-tightest -ml-1">
+          {SITE.shortName}
+        </p>
+        <div className="h-1 w-24 bg-accent mt-4" aria-hidden />
+
+        <div className="mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-5 gap-10">
+          <div className="col-span-2 max-w-sm">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Framed stadium map prints, made on demand and shipped across the UK and EU. No crests, no clichés.
             </p>
             <form
-              className="mt-6 flex max-w-sm gap-2"
+              className="mt-6 flex gap-2"
               aria-label="Newsletter signup"
             >
               <label htmlFor="footer-email" className="sr-only">
@@ -54,11 +55,11 @@ export function SiteFooter() {
                 id="footer-email"
                 type="email"
                 placeholder="you@example.com"
-                className="flex-1 h-10 px-3 rounded bg-surface border border-border text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                className="flex-1 h-11 px-3 rounded-sm bg-surface border border-border text-sm focus:outline-none focus:ring-2 focus:ring-ring"
               />
               <button
                 type="submit"
-                className="h-10 px-4 rounded bg-foreground text-background text-sm font-medium hover:bg-foreground/90"
+                className="h-11 px-4 rounded-sm bg-accent text-accent-foreground text-xs font-bold uppercase tracking-wider hover:bg-accent/90"
               >
                 Subscribe
               </button>
@@ -67,10 +68,10 @@ export function SiteFooter() {
 
           {COLUMNS.map((col) => (
             <div key={col.title}>
-              <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-4">
+              <h3 className="text-[10px] uppercase tracking-widest text-accent mb-5 font-bold">
                 {col.title}
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {col.links.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -86,11 +87,11 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="mt-12 pt-6 border-t border-border flex flex-col md:flex-row justify-between gap-3 text-xs text-muted-foreground">
+        <div className="mt-16 pt-6 border-t border-border flex flex-col md:flex-row justify-between gap-3 text-[10px] uppercase tracking-widest text-muted-foreground">
           <p>
-            © {new Date().getFullYear()} {SITE.name}. Prints reference stadiums by location and architecture; no club crests or official trademarks are used.
+            © {new Date().getFullYear()} {SITE.name} · Map prints only. No club crests or trademarks used.
           </p>
-          <p>UK and EU delivery · FSC-certified frames · Made on demand</p>
+          <p>UK + EU delivery · FSC frames · Made on demand</p>
         </div>
       </div>
     </footer>

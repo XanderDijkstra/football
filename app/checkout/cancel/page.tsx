@@ -14,7 +14,7 @@ export default function CheckoutCancelPage() {
       <SiteHeader />
       <main className="container py-16 md:py-24">
         <div className="max-w-xl mx-auto text-center">
-          <h1 className="font-serif text-3xl md:text-5xl text-foreground">
+          <h1 className="font-display text-3xl md:text-5xl text-foreground">
             Checkout cancelled.
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mt-4">

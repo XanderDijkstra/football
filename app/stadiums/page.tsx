@@ -27,7 +27,7 @@ export default function StadiumsIndex() {
       <main className="container py-6 md:py-8">
         <Breadcrumbs items={[{ label: "Stadiums" }]} />
         <header className="mt-3 max-w-2xl">
-          <h1 className="font-serif text-3xl md:text-5xl text-foreground">
+          <h1 className="font-display text-3xl md:text-5xl text-foreground">
             Every stadium we frame.
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mt-4">
@@ -38,7 +38,7 @@ export default function StadiumsIndex() {
         <div className="mt-12 md:mt-16 space-y-16">
           {grouped.map(([country, list]) => (
             <section key={country}>
-              <h2 className="font-serif text-2xl text-foreground mb-6">{country}</h2>
+              <h2 className="font-display text-2xl text-foreground mb-6">{country}</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                 {list.map((s) => (
                   <StadiumCard key={s.slug} stadium={s} />

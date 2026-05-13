@@ -26,7 +26,7 @@ export default function BlogIndex() {
       <main className="container py-6 md:py-8">
         <Breadcrumbs items={[{ label: "Journal" }]} />
         <header className="mt-3 max-w-2xl">
-          <h1 className="font-serif text-3xl md:text-5xl text-foreground">
+          <h1 className="font-display text-3xl md:text-5xl text-foreground">
             Journal
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mt-4">
@@ -44,7 +44,7 @@ export default function BlogIndex() {
                 <p className="text-xs uppercase tracking-widest text-muted-foreground font-numeric">
                   {formatPostDate(post.date)} · {post.readMinutes} min read
                 </p>
-                <h2 className="font-serif text-2xl md:text-3xl text-foreground mt-2 group-hover:underline">
+                <h2 className="font-display text-2xl md:text-3xl text-foreground mt-2 group-hover:underline">
                   {post.title}
                 </h2>
                 <p className="text-base text-muted-foreground mt-2 max-w-2xl">

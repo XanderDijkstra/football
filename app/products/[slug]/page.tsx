@@ -54,7 +54,7 @@ export default async function ProductPage({ params }: Props) {
         />
 
         <section className="mt-3 grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-          <div className="aspect-[4/5] bg-cream rounded overflow-hidden border border-border relative">
+          <div className="aspect-[4/5] bg-surface rounded-sm overflow-hidden border border-border relative">
             <div className="absolute inset-0 flex items-center justify-center p-10">
               <div
                 className={`w-full h-full bg-foreground/[0.04] border-[16px] ${
@@ -74,13 +74,13 @@ export default async function ProductPage({ params }: Props) {
             <p className="text-xs uppercase tracking-widest text-muted-foreground">
               {p.frameColorLabel} · {p.sizeLabel}
             </p>
-            <h1 className="font-serif text-3xl md:text-5xl text-foreground mt-3">
+            <h1 className="font-display text-3xl md:text-5xl text-foreground mt-3">
               {p.frameColorLabel} framed football prints — {p.sizeLabel}
             </h1>
             <p className="text-base md:text-lg text-muted-foreground mt-4 max-w-md">
               {p.intro}
             </p>
-            <p className="font-serif text-3xl text-foreground mt-6 font-numeric">
+            <p className="font-display text-3xl text-foreground mt-6 font-numeric">
               {formatPrice(p.priceGbp)}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
@@ -126,7 +126,7 @@ export default async function ProductPage({ params }: Props) {
 
         <div className="max-w-3xl mx-auto mt-16 md:mt-24 space-y-16">
           <section>
-            <h2 className="font-serif text-2xl md:text-3xl text-foreground">
+            <h2 className="font-display text-2xl md:text-3xl text-foreground">
               Available in this format
             </h2>
             <p className="mt-4 text-muted-foreground">
@@ -139,7 +139,7 @@ export default async function ProductPage({ params }: Props) {
                     href={`/stadiums/${s.slug}`}
                     className="block p-4 bg-surface border border-border rounded hover:border-foreground"
                   >
-                    <p className="font-serif text-base text-foreground">{s.name}</p>
+                    <p className="font-display text-base text-foreground">{s.name}</p>
                     <p className="text-xs text-muted-foreground mt-1">
                       {s.club.name}
                     </p>
@@ -150,7 +150,7 @@ export default async function ProductPage({ params }: Props) {
           </section>
 
           <section>
-            <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-6">
+            <h2 className="font-display text-2xl md:text-3xl text-foreground mb-6">
               Common questions
             </h2>
             <Faq items={p.faqs} />

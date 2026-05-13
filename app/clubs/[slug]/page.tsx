@@ -59,7 +59,7 @@ export default async function ClubPage({ params }: Props) {
           <p className="text-xs uppercase tracking-widest text-muted-foreground">
             {club.city.name} · est. {club.founded}
           </p>
-          <h1 className="font-serif text-3xl md:text-5xl text-foreground mt-3">
+          <h1 className="font-display text-3xl md:text-5xl text-foreground mt-3">
             {club.name} framed prints and wall art
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mt-4">
@@ -70,7 +70,7 @@ export default async function ClubPage({ params }: Props) {
         <div className="max-w-3xl mx-auto mt-12 md:mt-16 space-y-16">
           {stadium && (
             <section>
-              <h2 className="font-serif text-2xl md:text-3xl text-foreground">
+              <h2 className="font-display text-2xl md:text-3xl text-foreground">
                 Prints featuring {club.name}
               </h2>
               <p className="mt-4 text-foreground/90 leading-relaxed">
@@ -91,14 +91,14 @@ export default async function ClubPage({ params }: Props) {
           )}
 
           <section>
-            <h2 className="font-serif text-2xl md:text-3xl text-foreground">
+            <h2 className="font-display text-2xl md:text-3xl text-foreground">
               About the club
             </h2>
             <p className="mt-5 text-foreground/90 leading-relaxed">{club.about}</p>
           </section>
 
           <section>
-            <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-6">
+            <h2 className="font-display text-2xl md:text-3xl text-foreground mb-6">
               Common questions
             </h2>
             <Faq items={club.faqs} />
@@ -113,7 +113,7 @@ export default async function ClubPage({ params }: Props) {
                 <p className="text-xs uppercase tracking-widest text-muted-foreground">
                   Stadium
                 </p>
-                <p className="font-serif text-lg text-foreground mt-1">
+                <p className="font-display text-lg text-foreground mt-1">
                   {stadium.name}
                 </p>
               </Link>
@@ -126,7 +126,7 @@ export default async function ClubPage({ params }: Props) {
                 <p className="text-xs uppercase tracking-widest text-muted-foreground">
                   City
                 </p>
-                <p className="font-serif text-lg text-foreground mt-1">
+                <p className="font-display text-lg text-foreground mt-1">
                   {city.name}
                 </p>
               </Link>
@@ -138,7 +138,7 @@ export default async function ClubPage({ params }: Props) {
               <p className="text-xs uppercase tracking-widest text-muted-foreground">
                 Read
               </p>
-              <p className="font-serif text-lg text-foreground mt-1">
+              <p className="font-display text-lg text-foreground mt-1">
                 Gift guide: football fans
               </p>
             </Link>
@@ -147,7 +147,7 @@ export default async function ClubPage({ params }: Props) {
 
         {related.length > 0 && (
           <section className="mt-20 md:mt-24">
-            <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-8">
+            <h2 className="font-display text-2xl md:text-3xl text-foreground mb-8">
               Other clubs
             </h2>
             <ul className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
@@ -157,7 +157,7 @@ export default async function ClubPage({ params }: Props) {
                     href={`/clubs/${c.slug}`}
                     className="flex items-center justify-between gap-4 p-5 bg-surface border border-border rounded hover:border-foreground"
                   >
-                    <span className="font-serif text-base text-foreground">
+                    <span className="font-display text-base text-foreground">
                       {c.name}
                     </span>
                     <ArrowRight aria-hidden className="h-4 w-4" />

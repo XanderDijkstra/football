@@ -58,7 +58,7 @@ export default async function CityPage({ params }: Props) {
           <p className="text-xs uppercase tracking-widest text-muted-foreground">
             {city.country}
           </p>
-          <h1 className="font-serif text-3xl md:text-5xl text-foreground mt-3">
+          <h1 className="font-display text-3xl md:text-5xl text-foreground mt-3">
             Football frames from {city.name}
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mt-4">
@@ -68,7 +68,7 @@ export default async function CityPage({ params }: Props) {
 
         <div className="mt-12 md:mt-16 space-y-16 md:space-y-20">
           <section>
-            <h2 className="font-serif text-2xl md:text-3xl text-foreground">
+            <h2 className="font-display text-2xl md:text-3xl text-foreground">
               About football in {city.name}
             </h2>
             <p className="mt-5 text-foreground/90 leading-relaxed max-w-3xl">
@@ -78,7 +78,7 @@ export default async function CityPage({ params }: Props) {
 
           {stadiumsHere.length > 0 && (
             <section>
-              <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-8">
+              <h2 className="font-display text-2xl md:text-3xl text-foreground mb-8">
                 Stadiums in {city.name}
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
@@ -91,7 +91,7 @@ export default async function CityPage({ params }: Props) {
 
           {clubsHere.length > 0 && (
             <section>
-              <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-8">
+              <h2 className="font-display text-2xl md:text-3xl text-foreground mb-8">
                 Clubs in {city.name}
               </h2>
               <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -101,7 +101,7 @@ export default async function CityPage({ params }: Props) {
                       href={`/clubs/${c.slug}`}
                       className="block p-5 bg-surface border border-border rounded hover:border-foreground"
                     >
-                      <p className="font-serif text-lg text-foreground">{c.name}</p>
+                      <p className="font-display text-lg text-foreground">{c.name}</p>
                       <p className="text-sm text-muted-foreground mt-1">
                         est. {c.founded}
                       </p>

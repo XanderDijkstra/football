@@ -35,7 +35,7 @@ export function SizePicker({ value, options, onChange }: Props) {
               }`}
             >
               <div>
-                <p className="font-serif text-base text-foreground">{o.label}</p>
+                <p className="font-display text-base text-foreground">{o.label}</p>
                 <p className="text-xs text-muted-foreground mt-0.5 font-numeric">
                   {o.cm}
                 </p>

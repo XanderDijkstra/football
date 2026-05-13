@@ -1,14 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Anton, Inter } from "next/font/google";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SITE } from "@/lib/utils";
 import "./globals.css";
 
-const serif = Fraunces({
+const display = Anton({
   subsets: ["latin"],
-  variable: "--font-serif",
+  weight: "400",
+  variable: "--font-display",
   display: "swap",
-  axes: ["opsz"],
 });
 
 const sans = Inter({
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F5F1EA",
+  themeColor: "#0A0A0A",
 };
 
 export default function RootLayout({
@@ -49,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
+    <html lang="en" className={`${display.variable} ${sans.variable}`}>
       <body>
         <ScrollToTop />
         {children}

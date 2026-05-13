@@ -24,7 +24,7 @@ export default function ShopPage() {
       <main className="container py-6 md:py-8">
         <Breadcrumbs items={[{ label: "Shop" }]} />
         <header className="mt-3 max-w-2xl">
-          <h1 className="font-serif text-3xl md:text-5xl text-foreground">
+          <h1 className="font-display text-3xl md:text-5xl text-foreground">
             All framed football prints
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mt-4">
@@ -33,7 +33,7 @@ export default function ShopPage() {
         </header>
 
         <section className="mt-12 md:mt-16">
-          <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-8">
+          <h2 className="font-display text-2xl md:text-3xl text-foreground mb-8">
             By stadium
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
@@ -44,7 +44,7 @@ export default function ShopPage() {
         </section>
 
         <section className="mt-16 md:mt-24">
-          <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-8">
+          <h2 className="font-display text-2xl md:text-3xl text-foreground mb-8">
             By frame
           </h2>
           <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -55,7 +55,7 @@ export default function ShopPage() {
                   className="flex items-center justify-between gap-4 p-5 bg-surface border border-border rounded hover:border-foreground"
                 >
                   <div>
-                    <p className="font-serif text-base text-foreground">
+                    <p className="font-display text-base text-foreground">
                       {p.frameColorLabel} · {p.sizeLabel}
                     </p>
                     <p className="text-xs text-muted-foreground mt-1">

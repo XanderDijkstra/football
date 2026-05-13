@@ -50,7 +50,7 @@ export default async function GlossaryTermPage({ params }: Props) {
         />
         <article className="max-w-3xl mx-auto mt-3">
           <header>
-            <h1 className="font-serif text-4xl md:text-6xl text-foreground">
+            <h1 className="font-display text-4xl md:text-6xl text-foreground">
               {g.term}
             </h1>
             <p className="text-lg text-muted-foreground mt-4 max-w-2xl">
@@ -76,7 +76,7 @@ export default async function GlossaryTermPage({ params }: Props) {
                       href={`/stadiums/${s.slug}`}
                       className="block p-4 bg-surface border border-border rounded hover:border-foreground"
                     >
-                      <p className="font-serif text-base text-foreground">{s.name}</p>
+                      <p className="font-display text-base text-foreground">{s.name}</p>
                       <p className="text-xs text-muted-foreground mt-1">{s.city.name}</p>
                     </Link>
                   </li>

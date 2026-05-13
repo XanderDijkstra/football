@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -62,209 +62,210 @@ export default async function StadiumPage({ params }: Props) {
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
-      <main className="container py-6 md:py-8">
-        <Breadcrumbs
-          items={[
-            { label: "Stadiums", href: "/stadiums" },
-            { label: stadium.name },
-          ]}
-        />
-
-        {/* Hero */}
-        <section className="mt-3 grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-          <div>
-            <p className="text-xs uppercase tracking-widest text-muted-foreground">
-              {stadium.country} · {stadium.city.name}
+      <main>
+        {/* Massive masthead hero */}
+        <section className="border-b border-border">
+          <div className="container pt-6 md:pt-8 pb-12 md:pb-16">
+            <Breadcrumbs
+              items={[
+                { label: "Stadiums", href: "/stadiums" },
+                { label: stadium.name },
+              ]}
+            />
+            <p className="mt-6 text-[10px] uppercase tracking-[0.25em] text-accent font-bold">
+              / {stadium.country} · {stadium.city.name} · est. {stadium.opened}
             </p>
-            <h1 className="font-serif text-4xl md:text-6xl leading-[1.05] text-foreground mt-3">
-              {stadium.name} framed prints
+            {/* Sliced wordmark of the stadium name */}
+            <h1
+              aria-label={`${stadium.name} framed prints`}
+              className="mt-4 font-display uppercase text-foreground leading-[0.85] tracking-tightest break-words text-[18vw] md:text-[14rem] lg:text-[18rem]"
+            >
+              {stadium.name}
             </h1>
-            <p className="text-base md:text-lg text-muted-foreground mt-4 max-w-lg">
+            <p className="mt-8 text-base md:text-xl text-foreground/80 leading-relaxed max-w-2xl">
               {stadium.intro}
             </p>
-            <div className="mt-6 flex items-baseline gap-3">
-              <p className="text-sm text-muted-foreground">From</p>
-              <p className="font-serif text-2xl text-foreground font-numeric">
-                {formatPrice(startingFrom)}
-              </p>
-            </div>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href={`/build?stadium=${stadium.slug}`}
-                className="inline-flex h-12 items-center gap-2 px-6 rounded bg-accent text-accent-foreground font-medium hover:bg-accent/90"
-              >
-                Build your {stadium.name} print
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                href="/shop"
-                className="inline-flex h-12 items-center px-6 rounded border border-foreground text-foreground font-medium hover:bg-foreground hover:text-background transition-colors"
-              >
-                See all frame options
-              </Link>
-            </div>
-          </div>
 
-          <div className="aspect-[4/5] bg-cream rounded overflow-hidden border border-border relative">
-            <div className="absolute inset-0 flex items-center justify-center p-8">
-              <div className="w-full h-full bg-foreground/[0.04] border-[14px] border-foreground/85">
-                <div className="w-full h-full bg-surface border border-border flex flex-col items-center justify-center p-6">
-                  <MapPin aria-hidden className="h-6 w-6 text-foreground/40" />
-                  <p className="font-serif text-xl text-foreground mt-3 text-center">
-                    {stadium.name}
-                  </p>
-                  <p className="text-xs text-muted-foreground mt-1 font-numeric">
-                    {stadium.lat.toFixed(4)}° {stadium.lat >= 0 ? "N" : "S"} ·{" "}
-                    {Math.abs(stadium.lng).toFixed(4)}° {stadium.lng >= 0 ? "E" : "W"}
-                  </p>
-                </div>
+            <div className="mt-10 flex flex-wrap items-end gap-x-10 gap-y-6 border-t border-border pt-6">
+              <div>
+                <p className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                  Price from
+                </p>
+                <p className="font-display uppercase text-foreground text-4xl md:text-5xl mt-1 font-numeric leading-none">
+                  {formatPrice(startingFrom)}
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href={`/build?stadium=${stadium.slug}`}
+                  className="inline-flex h-12 items-center gap-2 px-6 rounded-sm bg-accent text-accent-foreground font-bold uppercase tracking-wider text-sm hover:bg-accent/90"
+                >
+                  Frame {stadium.name}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="/shop"
+                  className="inline-flex h-12 items-center px-6 rounded-sm border border-foreground/30 text-foreground font-bold uppercase tracking-wider text-sm hover:border-foreground"
+                >
+                  All frame sizes
+                </Link>
               </div>
             </div>
           </div>
         </section>
 
-        <div className="max-w-3xl mx-auto mt-16 md:mt-24 space-y-16 md:space-y-20">
-          {/* About */}
-          <section>
-            <h2 className="font-serif text-2xl md:text-3xl text-foreground">
-              About {stadium.name}
-            </h2>
-            <p className="mt-5 text-base text-foreground/90 leading-relaxed">
-              {stadium.about}
-            </p>
-            <dl className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-border pt-6">
-              {stadium.facts.map((f) => (
-                <div key={f.label}>
-                  <dt className="text-xs uppercase tracking-widest text-muted-foreground">
-                    {f.label}
-                  </dt>
-                  <dd className="font-serif text-lg text-foreground mt-1 font-numeric">
-                    {f.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-            {stadium.architect && (
-              <p className="text-sm text-muted-foreground mt-4">
-                Architect: {stadium.architect}
-              </p>
-            )}
-          </section>
+        {/* Facts strip */}
+        <section className="border-b border-border bg-surface">
+          <div className="container py-8 md:py-10 grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-6">
+            {stadium.facts.map((f) => (
+              <div key={f.label}>
+                <p className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                  {f.label}
+                </p>
+                <p className="font-display uppercase text-foreground text-2xl md:text-3xl mt-1 font-numeric leading-none">
+                  {f.value}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
 
-          {/* What's on the map */}
-          <section>
-            <h2 className="font-serif text-2xl md:text-3xl text-foreground">
-              What's on the map
-            </h2>
-            <p className="mt-5 text-base text-foreground/90 leading-relaxed">
-              {stadium.whatsOnMap}
-            </p>
-            {glossaryTerms.length > 0 && (
-              <p className="mt-4 text-sm text-muted-foreground">
-                Mentioned in the print:{" "}
-                {glossaryTerms.map((g, i) => (
-                  <span key={g.slug}>
-                    <Link href={`/glossary/${g.slug}`} className="underline hover:text-foreground">
-                      {g.term}
-                    </Link>
-                    {i < glossaryTerms.length - 1 ? ", " : ""}
-                  </span>
-                ))}
+        <div className="container py-16 md:py-24 grid lg:grid-cols-[1fr_320px] gap-12 lg:gap-16">
+          {/* Main column */}
+          <div className="space-y-16 md:space-y-20 max-w-3xl">
+            <section>
+              <SectionTitle eyebrow="/ The ground" title="What it is." />
+              <p className="mt-6 text-base md:text-lg text-foreground/90 leading-relaxed">
+                {stadium.about}
               </p>
-            )}
-          </section>
+              {stadium.architect && (
+                <p className="text-xs text-muted-foreground mt-4 uppercase tracking-wider">
+                  Architect — {stadium.architect}
+                </p>
+              )}
+            </section>
 
-          {/* Frame options */}
-          <section>
-            <h2 className="font-serif text-2xl md:text-3xl text-foreground">
-              Frame options
-            </h2>
-            <p className="mt-5 text-base text-muted-foreground max-w-prose">
-              Three frame colours, four sizes. All FSC-certified, hand-assembled in the UK with anti-glare glass.
-            </p>
-            <ul className="mt-8 grid sm:grid-cols-2 gap-3">
-              {products.map((p) => (
-                <li key={p.slug}>
-                  <Link
-                    href={`/products/${p.slug}`}
-                    className="flex items-center justify-between gap-4 p-4 bg-surface border border-border rounded hover:border-foreground transition-colors"
-                  >
-                    <div>
-                      <p className="font-serif text-base text-foreground">
-                        {p.frameColorLabel} · {p.sizeLabel}
+            <section>
+              <SectionTitle eyebrow="/ The print" title="What's on the map." />
+              <p className="mt-6 text-base md:text-lg text-foreground/90 leading-relaxed">
+                {stadium.whatsOnMap}
+              </p>
+              {glossaryTerms.length > 0 && (
+                <p className="mt-5 text-xs text-muted-foreground uppercase tracking-wider">
+                  Picked out:{" "}
+                  {glossaryTerms.map((g, i) => (
+                    <span key={g.slug}>
+                      <Link
+                        href={`/glossary/${g.slug}`}
+                        className="text-accent hover:underline normal-case tracking-normal"
+                      >
+                        {g.term}
+                      </Link>
+                      {i < glossaryTerms.length - 1 ? ", " : ""}
+                    </span>
+                  ))}
+                </p>
+              )}
+            </section>
+
+            <section>
+              <SectionTitle eyebrow="/ Options" title="Frame it." />
+              <p className="mt-6 text-sm text-muted-foreground">
+                Three frame colours, four sizes. FSC-certified ash, hand-assembled in the UK with anti-glare glass.
+              </p>
+              <ul className="mt-8 grid sm:grid-cols-2 gap-2">
+                {products.map((p) => (
+                  <li key={p.slug}>
+                    <Link
+                      href={`/products/${p.slug}`}
+                      className="flex items-center justify-between gap-4 p-4 bg-surface border border-border hover:border-accent transition-colors"
+                    >
+                      <div>
+                        <p className="font-display uppercase text-foreground text-xl leading-none tracking-tight">
+                          {p.frameColorLabel} · {p.sizeLabel}
+                        </p>
+                        <p className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1.5 font-numeric">
+                          {p.dimensionsCm}
+                        </p>
+                      </div>
+                      <p className="font-display text-foreground text-2xl font-numeric leading-none">
+                        {formatPrice(p.priceGbp)}
                       </p>
-                      <p className="text-xs text-muted-foreground">{p.dimensionsCm}</p>
-                    </div>
-                    <p className="font-numeric text-foreground">{formatPrice(p.priceGbp)}</p>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </section>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
 
-          {/* FAQ */}
-          <section>
-            <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-6">
-              Common questions
-            </h2>
-            <Faq items={stadium.faqs} />
-          </section>
+            <section>
+              <SectionTitle eyebrow="/ FAQ" title="Asked + answered." />
+              <div className="mt-8">
+                <Faq items={stadium.faqs} />
+              </div>
+            </section>
+          </div>
 
-          {/* Related cluster */}
-          <section className="grid sm:grid-cols-3 gap-4 text-sm">
+          {/* Sidebar / related cluster */}
+          <aside className="lg:sticky lg:top-20 lg:self-start space-y-3 text-sm">
             {club && (
               <Link
                 href={`/clubs/${club.slug}`}
-                className="block p-5 bg-surface border border-border rounded hover:border-foreground"
+                className="block p-5 bg-surface border border-border hover:border-accent transition-colors"
               >
-                <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                <p className="text-[10px] uppercase tracking-widest text-accent font-bold">
                   Club
                 </p>
-                <p className="font-serif text-lg text-foreground mt-1">{club.name}</p>
-                <p className="text-muted-foreground mt-1">Prints, history, more</p>
+                <p className="font-display uppercase text-foreground text-2xl mt-1 leading-none tracking-tight">
+                  {club.name}
+                </p>
+                <p className="text-xs text-muted-foreground mt-2">
+                  Prints, history, more →
+                </p>
               </Link>
             )}
             {city && (
               <Link
                 href={`/cities/${city.slug}`}
-                className="block p-5 bg-surface border border-border rounded hover:border-foreground"
+                className="block p-5 bg-surface border border-border hover:border-accent transition-colors"
               >
-                <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                <p className="text-[10px] uppercase tracking-widest text-accent font-bold">
                   City
                 </p>
-                <p className="font-serif text-lg text-foreground mt-1">
-                  Football in {city.name}
+                <p className="font-display uppercase text-foreground text-2xl mt-1 leading-none tracking-tight">
+                  {city.name}
                 </p>
-                <p className="text-muted-foreground mt-1">All grounds in the city</p>
+                <p className="text-xs text-muted-foreground mt-2">
+                  All grounds in the city →
+                </p>
               </Link>
             )}
             <Link
               href="/blog/anatomy-of-the-modern-stand"
-              className="block p-5 bg-surface border border-border rounded hover:border-foreground"
+              className="block p-5 bg-surface border border-border hover:border-accent transition-colors"
             >
-              <p className="text-xs uppercase tracking-widest text-muted-foreground">
+              <p className="text-[10px] uppercase tracking-widest text-accent font-bold">
                 Read
               </p>
-              <p className="font-serif text-lg text-foreground mt-1">
+              <p className="font-display uppercase text-foreground text-xl mt-1 leading-tight tracking-tight">
                 Anatomy of the modern stand
               </p>
-              <p className="text-muted-foreground mt-1">
-                How stadium design has changed
+              <p className="text-xs text-muted-foreground mt-2">
+                How stadium design has changed →
               </p>
             </Link>
-          </section>
+          </aside>
         </div>
 
         {/* Related stadiums */}
         {relatedStadiums.length > 0 && (
-          <section className="mt-20 md:mt-24">
-            <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-8">
-              More stadiums
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-              {relatedStadiums.map((s) => (
-                <StadiumCard key={s.slug} stadium={s} />
-              ))}
+          <section className="border-t border-border">
+            <div className="container py-16 md:py-24">
+              <SectionTitle eyebrow="/ Next" title="More grounds." />
+              <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3">
+                {relatedStadiums.map((s) => (
+                  <StadiumCard key={s.slug} stadium={s} />
+                ))}
+              </div>
             </div>
           </section>
         )}
@@ -290,5 +291,24 @@ export default async function StadiumPage({ params }: Props) {
         ]}
       />
     </div>
+  );
+}
+
+function SectionTitle({
+  eyebrow,
+  title,
+}: {
+  eyebrow: string;
+  title: string;
+}) {
+  return (
+    <header>
+      <p className="text-[10px] uppercase tracking-[0.25em] text-accent font-bold">
+        {eyebrow}
+      </p>
+      <h2 className="font-display uppercase text-foreground text-4xl md:text-6xl mt-3 tracking-tight leading-[0.9]">
+        {title}
+      </h2>
+    </header>
   );
 }

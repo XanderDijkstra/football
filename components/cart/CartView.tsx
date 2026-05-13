@@ -55,7 +55,7 @@ export function CartView() {
   if (items.length === 0) {
     return (
       <div className="border border-border rounded p-10 bg-surface text-center">
-        <p className="font-serif text-2xl text-foreground">Your cart is empty.</p>
+        <p className="font-display text-2xl text-foreground">Your cart is empty.</p>
         <p className="text-sm text-muted-foreground mt-2">
           Pick a stadium, frame it, see it on your wall.
         </p>
@@ -74,7 +74,7 @@ export function CartView() {
       <ul className="divide-y divide-border border-y border-border">
         {items.map((it) => (
           <li key={it.id} className="py-5 flex items-start gap-4">
-            <div className="h-20 w-16 bg-cream border border-border rounded flex items-center justify-center overflow-hidden">
+            <div className="h-20 w-16 bg-background border border-border rounded-sm flex items-center justify-center overflow-hidden">
               {it.customImageDataUrl ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
@@ -83,13 +83,13 @@ export function CartView() {
                   className="h-full w-full object-cover"
                 />
               ) : (
-                <span className="font-serif text-xs text-muted-foreground text-center px-1">
+                <span className="font-display text-xs text-muted-foreground text-center px-1">
                   {it.stadiumName}
                 </span>
               )}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="font-serif text-base text-foreground">
+              <p className="font-display text-base text-foreground">
                 {it.stadiumName}
               </p>
               <p className="text-xs text-muted-foreground mt-0.5">
@@ -143,7 +143,7 @@ export function CartView() {
 
       <aside className="lg:sticky lg:top-24 lg:self-start">
         <div className="bg-surface border border-border rounded p-6">
-          <h2 className="font-serif text-xl text-foreground">Summary</h2>
+          <h2 className="font-display text-xl text-foreground">Summary</h2>
           <dl className="mt-4 space-y-2 text-sm">
             <div className="flex justify-between">
               <dt className="text-muted-foreground">Subtotal</dt>
@@ -155,8 +155,8 @@ export function CartView() {
             </div>
           </dl>
           <div className="mt-6 pt-4 border-t border-border flex justify-between">
-            <p className="font-serif text-base text-foreground">Total</p>
-            <p className="font-serif text-xl text-foreground font-numeric">
+            <p className="font-display text-base text-foreground">Total</p>
+            <p className="font-display text-xl text-foreground font-numeric">
               {formatPrice(total)}
             </p>
           </div>
@@ -164,12 +164,12 @@ export function CartView() {
             type="button"
             onClick={startCheckout}
             disabled={checkoutPending}
-            className="mt-6 w-full h-12 rounded bg-foreground text-background font-medium hover:bg-foreground/90 disabled:opacity-60"
+            className="mt-6 w-full h-12 rounded-sm bg-accent text-accent-foreground font-bold uppercase tracking-wider text-sm hover:bg-accent/90 disabled:opacity-60"
           >
             {checkoutPending ? "Redirecting…" : "Proceed to checkout"}
           </button>
           {checkoutError && (
-            <p role="alert" className="mt-3 text-xs text-red-700">
+            <p role="alert" className="mt-3 text-xs text-danger">
               {checkoutError}
             </p>
           )}

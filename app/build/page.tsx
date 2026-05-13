@@ -20,7 +20,7 @@ export default function BuildPage() {
       <main className="container py-6 md:py-8">
         <Breadcrumbs items={[{ label: "Build" }]} />
         <header className="mt-3 max-w-2xl">
-          <h1 className="font-serif text-3xl md:text-5xl text-foreground">
+          <h1 className="font-display text-3xl md:text-5xl text-foreground">
             Build your framed stadium print
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mt-4">

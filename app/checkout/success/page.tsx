@@ -19,7 +19,7 @@ export default function CheckoutSuccessPage() {
           <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground">
             <Check aria-hidden className="h-6 w-6" />
           </div>
-          <h1 className="font-serif text-3xl md:text-5xl text-foreground mt-6">
+          <h1 className="font-display text-3xl md:text-5xl text-foreground mt-6">
             Your order's in the studio.
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mt-4">

@@ -63,7 +63,7 @@ export function StadiumPicker({ selectedSlug, onSelect }: Props) {
                       : "border-border bg-surface hover:border-foreground"
                   }`}
                 >
-                  <p className="font-serif text-sm leading-tight">{s.name}</p>
+                  <p className="font-display text-sm leading-tight">{s.name}</p>
                   <p
                     className={`text-xs mt-0.5 ${
                       active ? "text-background/70" : "text-muted-foreground"

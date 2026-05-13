@@ -16,7 +16,7 @@ export default function CartPage() {
       <main className="container py-6 md:py-8">
         <Breadcrumbs items={[{ label: "Cart" }]} />
         <header className="mt-3">
-          <h1 className="font-serif text-3xl md:text-5xl text-foreground">
+          <h1 className="font-display text-3xl md:text-5xl text-foreground">
             Your cart
           </h1>
         </header>

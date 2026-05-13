@@ -179,7 +179,7 @@ export function Builder() {
                   {product.dimensionsCm}
                 </p>
               </div>
-              <p className="font-serif text-2xl text-foreground font-numeric">
+              <p className="font-display text-2xl text-foreground font-numeric">
                 {formatPrice(product.priceGbp)}
               </p>
             </div>
@@ -219,7 +219,7 @@ function Step({
         >
           {n}
         </span>
-        <h2 className="font-serif text-xl text-foreground">{title}</h2>
+        <h2 className="font-display text-xl text-foreground">{title}</h2>
         <Check className="hidden text-accent h-4 w-4" />
       </div>
       <div>{children}</div>

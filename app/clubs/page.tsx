@@ -26,7 +26,7 @@ export default function ClubsIndex({
       <main className="container py-6 md:py-8">
         <Breadcrumbs items={[{ label: "Clubs" }]} />
         <header className="mt-3 max-w-2xl">
-          <h1 className="font-serif text-3xl md:text-5xl text-foreground">
+          <h1 className="font-display text-3xl md:text-5xl text-foreground">
             Find your club.
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mt-4">
@@ -119,7 +119,7 @@ async function ClubsBody({
             .sort(([a], [b]) => a.localeCompare(b))
             .map(([country, list]) => (
               <section key={country}>
-                <h2 className="font-serif text-2xl text-foreground mb-6">{country}</h2>
+                <h2 className="font-display text-2xl text-foreground mb-6">{country}</h2>
                 <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
                   {list.map((c) => (
                     <li key={c.slug}>
@@ -127,7 +127,7 @@ async function ClubsBody({
                         href={`/clubs/${c.slug}`}
                         className="block p-5 bg-surface border border-border rounded hover:border-foreground transition-colors"
                       >
-                        <p className="font-serif text-lg text-foreground">{c.name}</p>
+                        <p className="font-display text-lg text-foreground">{c.name}</p>
                         <p className="text-sm text-muted-foreground mt-1">
                           {c.city.name} · est. {c.founded}
                         </p>

@@ -3,31 +3,28 @@
 @tailwind utilities;
 
 /*
-  Design tokens — The Footy Frame
-  Cream-on-ink editorial palette with a single accent (deep pitch green).
-  Hex equivalents:
-    ink     #0F1115
-    cream   #F5F1EA
-    pitch   #1E5128
-    paper   #FFFFFF
-    muted   #6B6B6B
-    border  #E5DFD3
+  Design tokens — The Footy Frame (terrace edition)
+  Dark, condensed, acid yellow. Built to feel like a matchday programme,
+  not a homeware store.
+    bg       #0A0A0A
+    fg       #F2F2EE (paper)
+    accent   #E5FF1A (acid yellow)
+    danger   #FF3D00
+    surface  #141414 (card)
+    border   #1F1F1F
+    muted    #8A8A85
 */
 :root {
-  --ink: 220 17% 7%;
-  --cream: 38 38% 94%;
-  --pitch: 132 47% 22%;
-  --surface: 0 0% 100%;
-  --muted: 0 0% 42%;
-  --border-color: 39 32% 87%;
-
-  --background: var(--cream);
-  --foreground: var(--ink);
-  --muted-foreground: var(--muted);
-  --accent: var(--pitch);
-  --accent-foreground: var(--cream);
-  --border: var(--border-color);
-  --ring: var(--pitch);
+  --background: 0 0% 4%;
+  --foreground: 60 17% 94%;
+  --surface: 0 0% 8%;
+  --muted: 60 4% 54%;
+  --muted-foreground: 60 4% 60%;
+  --accent: 64 100% 55%;
+  --accent-foreground: 0 0% 4%;
+  --danger: 14 100% 50%;
+  --border: 0 0% 12%;
+  --ring: 64 100% 55%;
 }
 
 * {
@@ -43,14 +40,62 @@ body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family: var(--font-sans), system-ui, sans-serif;
+  position: relative;
+}
+
+/* Subtle film grain over everything. SVG fractal noise, baked once and tiled. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 200px 200px;
+}
+
+/* Lift app content above the grain layer. */
+body > * {
+  position: relative;
+  z-index: 2;
 }
 
 .font-numeric {
   font-variant-numeric: tabular-nums;
 }
 
-/* Subtle hairline on hr */
+/* Display utility: condensed, uppercase, tightly tracked. Use for hero titles. */
+.font-stencil {
+  font-family: var(--font-display), Anton, "Arial Narrow", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 0.88;
+}
+
+/* A thin acid-yellow underline used under small caps eyebrow labels. */
+.accent-underline {
+  position: relative;
+  display: inline-block;
+}
+.accent-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background-color: hsl(var(--accent));
+}
+
 hr {
   border-color: hsl(var(--border));
   border-top-width: 1px;
+}
+
+::selection {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
 }

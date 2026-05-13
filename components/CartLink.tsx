@@ -10,13 +10,13 @@ export function CartLink() {
     <Link
       href="/cart"
       aria-label={hasHydrated ? `Cart, ${count} item${count === 1 ? "" : "s"}` : "Cart"}
-      className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-1"
+      className="text-xs uppercase tracking-widest text-foreground/70 hover:text-foreground inline-flex items-center gap-2"
     >
       <span>Cart</span>
       {hasHydrated && count > 0 && (
         <span
           aria-hidden
-          className="inline-flex h-5 min-w-5 px-1.5 items-center justify-center rounded-full bg-foreground text-background text-[10px] font-numeric"
+          className="inline-flex h-5 min-w-5 px-1.5 items-center justify-center rounded-sm bg-accent text-accent-foreground text-[10px] font-bold font-numeric"
         >
           {count}
         </span>

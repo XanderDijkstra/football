@@ -67,7 +67,7 @@ export default async function BlogPostPage({ params }: Props) {
             <p className="text-xs uppercase tracking-widest text-muted-foreground font-numeric">
               {formatPostDate(post.date)} · {post.readMinutes} min read
             </p>
-            <h1 className="font-serif text-4xl md:text-6xl text-foreground mt-3 leading-[1.05]">
+            <h1 className="font-display text-4xl md:text-6xl text-foreground mt-3 leading-[1.05]">
               {post.title}
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mt-5 max-w-2xl">
@@ -114,7 +114,7 @@ export default async function BlogPostPage({ params }: Props) {
 
           {relatedPosts.length > 0 && (
             <section className="mt-16 border-t border-border pt-8">
-              <h2 className="font-serif text-2xl text-foreground">
+              <h2 className="font-display text-2xl text-foreground">
                 You might also like
               </h2>
               <ul className="mt-6 grid sm:grid-cols-3 gap-4">
@@ -127,7 +127,7 @@ export default async function BlogPostPage({ params }: Props) {
                       <p className="text-xs uppercase tracking-widest text-muted-foreground">
                         {formatPostDate(p.date)}
                       </p>
-                      <p className="font-serif text-lg text-foreground mt-2">
+                      <p className="font-display text-lg text-foreground mt-2">
                         {p.title}
                       </p>
                     </Link>
