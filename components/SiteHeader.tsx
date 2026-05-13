@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SITE } from "@/lib/utils";
+import { CartLink } from "@/components/CartLink";
 
 const NAV = [
   { label: "Shop", href: "/shop" },
@@ -42,13 +43,7 @@ export function SiteHeader() {
           >
             Build yours
           </Link>
-          <Link
-            href="/cart"
-            className="text-sm text-foreground/80 hover:text-foreground"
-            aria-label="Cart"
-          >
-            Cart
-          </Link>
+          <CartLink />
         </div>
       </div>
     </header>
