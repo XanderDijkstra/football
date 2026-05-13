@@ -29,32 +29,36 @@ export default function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative border-b border-border overflow-hidden">
-      <div className="container pt-12 md:pt-16 pb-12 md:pb-16">
+    <section className="relative border-b border-border">
+      <div className="container pt-10 md:pt-14 pb-12 md:pb-16">
         {/* Eyebrow */}
         <p className="text-[10px] uppercase tracking-[0.25em] text-accent font-bold">
           Framed stadium maps · Made on demand
         </p>
 
-        {/* Massive sliced wordmark headline */}
-        <h1 className="mt-6 font-display uppercase text-foreground leading-[0.85] tracking-tightest">
-          <span className="block text-[16vw] md:text-[14rem] lg:text-[16rem]">
-            Made
+        {/*
+          Two-line condensed headline. Sized with clamp() so it never overflows
+          the container and never collides with itself vertically.
+          line-height:0.92 gives just enough breathing room.
+        */}
+        <h1 className="mt-8 md:mt-10 font-display uppercase text-foreground tracking-tight">
+          <span
+            className="block leading-[0.92]"
+            style={{ fontSize: "clamp(3rem, 13vw, 11rem)" }}
+          >
+            Made <span className="text-accent">for</span> fans.
           </span>
-          <span className="block text-[16vw] md:text-[14rem] lg:text-[16rem]">
-            <span className="text-accent">for</span> fans.
-          </span>
-          <span className="block text-[16vw] md:text-[14rem] lg:text-[16rem]">
-            One <span className="italic">frame</span>
-          </span>
-          <span className="block text-[16vw] md:text-[14rem] lg:text-[16rem]">
-            at a time.
+          <span
+            className="block leading-[0.92] mt-1"
+            style={{ fontSize: "clamp(2.25rem, 9.2vw, 7.75rem)" }}
+          >
+            One frame at a time.
           </span>
         </h1>
 
-        {/* Subhead + CTAs */}
-        <div className="mt-10 md:mt-14 grid md:grid-cols-3 gap-8 items-start">
-          <div className="md:col-span-2 max-w-xl">
+        {/* Subhead + CTAs + receipt */}
+        <div className="mt-12 md:mt-16 grid md:grid-cols-[1.5fr_1fr] gap-10 items-start">
+          <div className="max-w-xl">
             <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
               Pick your stadium. Preview it framed in oak, black or white. Delivered ready to hang, across the UK and Europe. No crests, no clichés.
             </p>
@@ -75,11 +79,10 @@ function Hero() {
             </div>
           </div>
 
-          {/* Stats / receipt block */}
           <dl className="border border-border rounded-sm p-5 bg-surface space-y-3 text-sm">
             <Stat label="Stadiums framed" value="42" />
             <Stat label="Delivery" value="UK + EU" />
-            <Stat label="Frames" value="3 finishes · 4 sizes" />
+            <Stat label="Frames" value="3 × 4" />
             <Stat label="Made in" value="Britain" />
           </dl>
         </div>
